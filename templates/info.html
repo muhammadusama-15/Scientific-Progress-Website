@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container" style="padding: 5%; font-size: large;">
+        <h3 style="text-align: center;">{{info.get('title')}}</h3>
+        <label style="font-weight: bold;">Authors: </label> <label>{{info.get('authors')}}</label> <br>
+        <label style="font-weight: bold;">Publishing Date: </label> <label>{{info.get('publication date')}}</label> <br>
+        <label style="font-weight: bold;">Content Type: </label> <label>{{info.get('publication type')}}</label> <br>
+        <label style="font-weight: bold;">Publisher: </label> <label>{{info.get('publisher')}}</label> <br>
+        <label style="font-weight: bold;">Link: </label> <a href="{{info.get('url')}}"><label>{{info.get('url')}}</label></a> <br>
+        <label style="font-weight: bold;">Abstract: </label> <label>{{info.get('abstract')}}</label> <br>
+        <label style="font-weight: bold;">Copyright: </label> <label>{{info.get('copyright')}}</label> <br>
+        <br>
+        <a type="button" href="{{url_for('home')}}" class="btn btn-primary">Home Page</a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% from "bootstrap5/form.html" import render_form %}
+
+{% block content %}
+    <div class="container" style="padding-left: 5%; padding-right: 5%; padding-top: 2%; padding-bottom: 2%;">
+        <h3 style="text-align: center;">Check out the latest advancements in different fields of science.</h3>
+        <div style="width: 400px; text-align: center;">
+            {{render_form(form)}}
+        </div>
+        <br>
+
+        {% if data %}
+            <div>
+                <h3>Most Recent Content related to "{{topic}}" on "SPRINGER NATURE".</h3>
+                <ul class="list-group">
+                    {% for item in data %}
+                        <li class="list-group-item">{{data.index(item)+1}}. {{item.get('title')}} --{{item.get('publication date')}} <a style="text-align: right;" href="{{url_for('show_info', title=item.get('title'))}}">Show Info</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
